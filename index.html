@@ -1,16 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="shortcut icon" href="img/iconos/favicon-16x16.png" type="image/x-icon" />
+        <title>DIG construccion</title>
+    </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to Vuetify 3</title>
-</head>
+    <body>
+        <header>
+            <nav class="header-menubar">
+                <a href="index.html">
+                    <img src="img/logo-removebg.png" alt="logo" />
+                </a>
+                <div id="burger-menu-button">
+                    <i onclick="toggle_navigation()" class="fa-solid fa-bars"></i>
+                </div>
+                <ul id="navigation" class="">
+                    <a href="/index.html"><li>Home</li></a>
+                    <a href="#Maq-ancla"><li>Maquinarias</li></a>
+                    <a href="/contacto.html"><li>Contacto</li></a>
+                </ul>
+            </nav>
+        </header>
 
-<body>
-  <div id="app"></div>
-  <script type="module" src="/src/main.ts"></script>
-</body>
+        <main>
+            <section id="inicio" class="secciones">
+                <img class="img-center" src="img/cargadora-compacta2.png" alt="bg-principal">
+                <div class="sombra">
+                    <div class="caja-texto">
+                        <h1>Haga el trabajo</h1>
+                        <div class="separador"></div>
+                        <p>¿Debe realizar un trabajo? Nosotros lo respaldamos. Obtenga respaldo de la red de distribuidores más grande y con mayor experiencia del mundo.</p>
+                    </div>
+                </div>
+            </section>
 
+            <section id="servicios" class="secciones">
+                <div id="servicios-ancla" class="ancla"></div>
+                <h2 class="titulos-secciones">Nuestros Servicios</h2>
+                <div class="grid-container">
+                    <div class="grid-item servicios-item">
+                        <img class="icon-servicios" src="img/iconos/globo.svg" alt="" />
+                        <p class="titulo-servicio">Venta:</p>
+                        <p>
+                            Amplia gama de vehículos y maquinaria para construcción y excavación. Calidad garantizada. Encuentra el equipo perfecto para tu proyecto. ¡Contacta ahora!
+                        </p>
+                    </div>
+                    <div class="grid-item servicios-item">
+                        <img class="icon-servicios" src="img/iconos/carrito.svg" alt="" />
+                        <p class="titulo-servicio">Asesoramiento y mantenimiento:</p>
+                        <p>
+                            Expertos en vehículos y maquinaria de construcción y excavación. Asesoramiento personalizado. Soporte técnico completo. Mantén tu equipo en óptimas condiciones para maximizar el rendimiento.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <div>
+                <a class="social" href="https://www.instagram.com/corewd/"><i class="fa-brands fa-instagram"></i></a>
+                <a class="social" href="https://twitter.com/CoreWebDesignG"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="social"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <p>Latin América - Español | Todos los derechos reservados DIG® 2023 </p>
+        </footer>
+        <script src="https://kit.fontawesome.com/f848986b3d.js" crossorigin="anonymous"></script>
+        <script src="./js/form_validation.js"></script>
+        <script src="./js/burger_menu.js"></script>
+        <script src="./js/time_api.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="js/app_index.js"></script>
+    </body>
 </html>
