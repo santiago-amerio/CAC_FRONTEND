@@ -1,303 +1,207 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import "./secciones/reset.css";
+@import "./secciones/header.css";
+@import "./secciones/catalogo.css";
+@import "./secciones/contacto.css";
+@import "./secciones/log.css";
+
 * {
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 .secciones {
-    width: 100%;
+  width: 100%;
 }
 
 .link-generico {
-    text-decoration: none;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-.link-generico:link, :visited{
-    color: #CC2D00;
-}
-
-
-/* Header y Barra de Navegación */
-
-.header-menubar {
-    padding: 0% 20px;
-    align-items: center;
-    display: flex;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    box-shadow: -2px 10px 18px #00000061;
-    background-color: #000000;
-}
-
-.header-menubar img {
-    width: 190px;
-    margin-right: auto;
-}
-
-.header-menubar ul {
-    padding: 0;
-    list-style: none;
-    display: block;
-    width: max-content;
-    position: absolute;
-    right: 40px;
-    top: 15px;
-}
-
-.header-menubar li {
-    text-align: center;
-    display: inline-block;
-    padding: 0.8rem;
-    margin-left: 5px;
-    transition: border-bottom 0.2;
-}
-
-.header-menubar li:hover {
-    border-bottom: 4px #CC2D00 solid;
-}
-
-.header-menubar a {
-    color: rgb(255, 255, 255);
-    font-weight: 700;
-    font-family: "Roboto", sans-serif;
-    width: 210px;
-    transition: color 0.2s;
-}
-
-.header-menubar a:hover {
-    color: #e83b10;
-}
-
-.header-menubar a:link {
-    font-style: normal;
-    text-decoration: none;
-}
-
-#burger-menu-button {
-    color: #cc2d00;
-    /* Esconde el boton del menu cuando esta en pantallas grandes */
-    display: none;
-    transition: font-size 400ms;
-}
-
-#burger-menu-button:active {
-    font-size: 1.2rem;
-}
-
-@media only screen and (max-width: 650px) {
-    .header-menubar {
-        flex-wrap: wrap;
-    }
-
-    #burger-menu-button {
-        font-size: 1.5rem;
-        display: block;
-        margin-left: auto;
-        margin-right: 1rem;
-    }
-    #navigation {
-        transition: max-height 1s, border-bottom 0.7s;
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        width: 100%;
-        height: 0;
-        overflow: hidden;
-        transition: height 0.3s;
-        border-bottom: 0px solid transparent;
-    }
-
-    #navigation.active {
-        height: 160px;
-        margin-left: 10px;
-    }
-    #navigation li {
-        display: inline-block;
-        text-align: center;
-        width:50px;
-        margin-left: 40px;
-    }
-    
+.link-generico:link,
+:visited {
+  color: #cc2d00;
 }
 
 /* primera seccion inicio */
 
 #inicio {
-    color: #ffff;
-    height: 91vh;
-    overflow: hidden;
-    margin-top: 40px;
-    box-shadow: inset 0px -10px 12px 0px rgba(0, 0, 0, 0.34);
+  color: #ffff;
+  height: 91vh;
+  overflow: hidden;
+  margin-top: 40px;
+  box-shadow: inset 0px -10px 12px 0px rgba(0, 0, 0, 0.34);
 }
 
-.sombra{
-    position: absolute;
-    top: 80px ;
-    left: 0px;
-    z-index: 2;
-    height: 85vh;
-    width: 100%;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+.sombra {
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  z-index: 2;
+  height: 84vh;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .caja-texto {
-    margin: 0 auto;
-    width: 600px;
-    margin: 190px 0 0 50px;
-} 
+  margin: 0 auto;
+  width: 600px;
+  margin: 190px 0 0 50px;
+}
 
 #inicio div h1 {
-    font-size: 50px;
-    padding-bottom: 20px;
+  font-size: 50px;
+  padding-bottom: 20px;
 }
 
 .separador {
-    width: 50px;
-    height: 2px;
-    border: #CC2D00 3px solid;
-    margin-bottom: 20px;
+  width: 50px;
+  height: 2px;
+  border: #cc2d00 3px solid;
+  margin-bottom: 20px;
 }
 
 .img-box {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .img-center {
-    width: auto;
-    height: 100%;
-    display: block;
+  width: auto;
+  height: 100%;
+  display: block;
 }
 
 @media only screen and (max-width: 768px) {
-    .img-center{
-        position: relative;
-        left: -250px;
-    }
+  .img-center {
+    position: relative;
+    left: -250px;
+  }
 
-    .caja-texto {
-        margin: 0 auto;
-        width: 80%;
-        margin: 190px 0 0 50px;
-    } 
+  .caja-texto {
+    margin: 0 auto;
+    width: 80%;
+    margin: 190px 0 0 50px;
+  }
 }
 
 @media only screen and (max-width: 576px) {
-    .img-center{
-        left: -450px;
-    }
+  .img-center {
+    left: -450px;
+  }
 }
 
 /* Configuracion del Grid*/
 
 .grid-container {
-    background-color: #ffffff;
-    margin: 0px auto;
-    width: fit-content;
-    border-radius: 20px;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto;
-    gap: 1.5rem;
-    padding: 0 2rem 2rem;
+  background-color: #ffffff;
+  margin: 0px auto;
+  width: fit-content;
+  border-radius: 20px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  padding: 1.5rem 2rem 1rem 2rem;
 }
 
 .grid-item {
-    min-height: 300px;
-    min-width: 280px;
-    max-width: 350px;
-    padding: 2rem;
-    border-radius: 25px;
-}
-
-@media only screen and (max-width: 1200px) {
-    .grid-container {
-        grid-template-columns: auto auto;
-    }
+  min-height: fit-content;
+  min-width: 280px;
+  max-width: 350px;
+  padding: 1em 2em 2em 2em;
+  border-radius: 25px;
 }
 
 @media only screen and (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: auto;
-    }
+  .grid-container {
+    grid-template-columns: auto;
+  }
 }
 
 /* Segunda seccion Servicios */
 
 #servicios {
-    background-color: #f5f5f5;
-    min-height: 550px;
-    max-height: fit-content;
-    padding-top: 2.5em;
+  background-color: #f5f5f5;
+  min-height: 450px;
+  max-height: fit-content;
+  padding-top: 3em;
+  padding-bottom: 3em;
 }
 
-#servicios > h2 { 
-    font-size: 1.8em;
-    margin: 0rem auto 1rem 9rem;  
-    width: fit-content;
-    background-color: #000000;
-    border-left: 6px #CC2D00 solid;
-    border-radius: 2px;
-    color: #dbdbdb;
-    padding: 0.5rem;
-    margin-bottom: 2.4rem;
+#servicios > h2 {
+  font-size: 1.8em;
+  margin: 0rem auto;
+  width: fit-content;
+  background-color: #000000;
+  border-left: 6px #cc2d00 solid;
+  border-radius: 2px;
+  color: #dbdbdb;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .servicios-item {
-    color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
 }
 
 .icon-servicios {
-    width: 35px;
-    margin: 1.5em;
+  width: 35px;
+  margin: 1.5em;
 }
 
 .titulo-servicio {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #cc2d00;
 }
 
 /* Footer */
 
 footer {
-    color: rgb(226, 226, 226);
-    height: 80px;
-    text-align: center;
-    background-color: #000000;
-    padding: 1rem;
+  width: 100%;
+  color: rgb(226, 226, 226);
+  height: 80px;
+  text-align: center;
+  background-color: #000000;
+  padding: 1rem;
 }
 
 footer div {
-    height: 30px;
+  height: 30px;
 }
 
 .social {
-    position: relative;
-    color: rgb(231, 228, 252);
-    font-size: 1.5rem;
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
-    box-shadow: none;
-    top: 0;
-    text-shadow: none;
-    transition: text-shadow 300ms, top 300ms, color 300ms;
+  position: relative;
+  color: rgb(231, 228, 252);
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  box-shadow: none;
+  top: 0;
+  text-shadow: none;
+  transition: text-shadow 300ms, top 300ms, color 300ms;
 }
 
 .social:hover {
-    top: -2px;
-    color: white;
-    text-shadow: 0px 2px 2px #17153334;
+  top: -2px;
+  color: white;
+  text-shadow: 0px 2px 2px #17153334;
 }
 
 footer p {
-    margin-top: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 10px;
-    height: 20px;
-    font-size: small;
+  margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+  height: 20px;
+  font-size: small;
 }
