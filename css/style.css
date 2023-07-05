@@ -3,25 +3,17 @@
     font-family: "Roboto", sans-serif;
 }
 
-/* Estilos Generales */
-
-.ancla {
-    position: relative;
-    /* border: 2px red solid; */
-    width: 10px;
-    height: 10px;
-    top: -60px;
-}
-
 .secciones {
     width: 100%;
 }
 
-.titulos-secciones {
-    font-size: 2em;
-    margin: 3rem auto 1rem auto;
+.link-generico {
+    text-decoration: none;
 }
 
+.link-generico:link, :visited{
+    color: #CC2D00;
+}
 
 
 /* Header y Barra de Navegación */
@@ -169,25 +161,22 @@
     margin-bottom: 20px;
 }
 
-.img-center {
+.img-box {
+    overflow: hidden;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    height: 100%;
+}
+
+.img-center {
+    width: auto;
+    height: 100%;
     display: block;
 }
 
-@media only screen and (max-width: 650px) {
-    .img-box {
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-    }
-
+@media only screen and (max-width: 768px) {
     .img-center{
-        width: auto;
-        height: 100%;
         position: relative;
-        left: -450px;
+        left: -250px;
     }
 
     .caja-texto {
@@ -197,7 +186,13 @@
     } 
 }
 
-/* Configuracion del Grid seccion 2 y 3 */
+@media only screen and (max-width: 576px) {
+    .img-center{
+        left: -450px;
+    }
+}
+
+/* Configuracion del Grid*/
 
 .grid-container {
     background-color: #ffffff;
@@ -238,12 +233,19 @@
     background-color: #f5f5f5;
     min-height: 550px;
     max-height: fit-content;
+    padding-top: 2.5em;
 }
 
-#servicios > h2 {
-    color: #CC2D00;
+#servicios > h2 { 
+    font-size: 1.8em;
+    margin: 0rem auto 1rem 9rem;  
+    width: fit-content;
+    background-color: #000000;
+    border-left: 6px #CC2D00 solid;
+    border-radius: 2px;
+    color: #dbdbdb;
+    padding: 0.5rem;
     margin-bottom: 2.4rem;
-    text-align: center;
 }
 
 .servicios-item {
