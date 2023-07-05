@@ -7,7 +7,7 @@ document.querySelector("#submit-login")
         e.preventDefault()
         let user = document.querySelector("#user-login").value
         let passw = document.querySelector("#passw-login").value
-        fetch('http://thiagosch.pythonanywhere.com/login', {
+        fetch('https://thiagosch.pythonanywhere.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -36,7 +36,8 @@ document.querySelector("#login-register")
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ "name": user, passw: passw, "mail": mail })
+            body: JSON.stringify({ "name": user, passw: passw, "mail": mail }),
+            credentials: 'include'
         })
             .then(response => response.json())
             .then(response => {
