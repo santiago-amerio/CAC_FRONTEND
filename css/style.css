@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+
 * {
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
@@ -8,6 +11,7 @@
 }
 
 .link-generico {
+    font-weight: 600;
     text-decoration: none;
 }
 
@@ -203,15 +207,14 @@
     justify-content: center;
     grid-template-columns: auto auto auto auto;
     grid-template-rows: auto;
-    gap: 1.5rem;
-    padding: 0 2rem 2rem;
+    padding: 1.5rem 2rem 1rem 2rem;
 }
 
 .grid-item {
-    min-height: 300px;
+    min-height: fit-content;
     min-width: 280px;
     max-width: 350px;
-    padding: 2rem;
+    padding: 1em 2em 2em 2em;
     border-radius: 25px;
 }
 
@@ -233,7 +236,7 @@
     background-color: #f5f5f5;
     min-height: 550px;
     max-height: fit-content;
-    padding-top: 2.5em;
+    padding: 2.5em 0;
 }
 
 #servicios > h2 { 
@@ -260,6 +263,8 @@
 .titulo-servicio {
     font-size: 1.5em;
     margin-bottom: 20px;
+    font-weight: 600;
+    color: #CC2D00;
 }
 
 /* Footer */
