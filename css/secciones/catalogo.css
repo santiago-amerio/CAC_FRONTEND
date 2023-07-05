@@ -81,6 +81,7 @@
     grid-row: 1;
   }
 }
+
 /* Tarjeta de Productos */
 
 .tipo-prod {
@@ -112,8 +113,8 @@
 /* Botton */
 
 .button {
-    width: fit-content;
-    margin: 20px 0 0 40px;
+  width: fit-content;
+  margin: 20px 0 0 40px;
   padding: 0.5em 1em;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -124,24 +125,53 @@
 }
 
 .button:hover {
-    background: #f14a1c;
+  background: #f14a1c;
 }
 
 /* Filtrado Productos */
 
 .titulo-filtro {
-    width: 90%;
-    font-size: 1.8em;
-    font-weight: 600;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #c1c1c1;
+  width: 90%;
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #c1c1c1;
 }
 
 .filtro-maquinas {
-    font-size: 0.9em;
-    text-decoration: none;
-    padding-top: 20px;
-    margin: 2em;
+  width: 90%;
+  font-size: 0.9em;
+  padding: 4px;
+  margin: 1em 0;
+  color: #cc2d00;
+  background-color: white;
+  transition: all 0.3s linear;
+}
+
+.filtro-maquinas:hover,
+.filtro-maquinas:active {
+  background-color: rgb(255, 0, 0);
+  color: white;
+}
+
+/* configuraciones del admin */
+
+.admin-config-box {
+  width: 90%;
+  min-height: 20px;
+  border-top: 1px solid #c1c1c1;
+  padding-top: 1em;
+}
+
+.adm-btn {
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: #c1c1c1;
+  color: black;
+}
+
+.adm-btn:hover, .adm-btn:active {
+  translate: 10px;
 }
