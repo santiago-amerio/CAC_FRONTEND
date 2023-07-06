@@ -1,7 +1,8 @@
 
 #contacto {
+    min-height: 500px;
+    max-height: fit-content;
     margin-top: 50px;
-    margin-bottom: 20px;
     color: #cc2d00;
 }
 
@@ -17,7 +18,6 @@
     max-width: max-content;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
 }
 
 .item-contacto {
@@ -36,8 +36,8 @@
     }
 }
 
-h4,
-h5 {
+.tag {
+    margin: 1em auto;
     font-weight: 600;
 }
 
@@ -65,7 +65,8 @@ h5 {
     transition: opacity .5s;
     max-inline-size: 500px;
     margin: auto;
-    text-align: left;
+    margin-bottom: 0px;
+    border-radius: 5px;
 }
 
 .form.disabled1 {
@@ -77,13 +78,18 @@ h5 {
 
 .form label {
     display: block;
-    margin-block-start: 1em;
+    margin-block-start: 0.5em;
     margin-block-end: 0.5em;
     padding-inline-start: 0.5em;
 }
 
 .form label span {
+    text-align: left;
     color: #da1414;
+}
+
+.label {
+    text-align: left;
 }
 
 .form input.error,
@@ -97,7 +103,7 @@ h5 {
     box-sizing: border-box;
     width: 100%;
     font-size: 1rem;
-    padding: 0.8em;
+    padding: 0.2em;
     border-radius: 0.5em;
     border: 2px solid #bbaaa6;
 }
@@ -117,7 +123,7 @@ input::-webkit-input-placeholder {
 }
 #submit-button {
     transition: opacity 0.2s;
-    padding: 1rem 2rem;
+    padding: 0.5em;
     cursor: pointer;
     border-radius: 10px;
     background: linear-gradient(4deg, #7f2005 0%, #CC2D00 33%, #f83838 100%);
