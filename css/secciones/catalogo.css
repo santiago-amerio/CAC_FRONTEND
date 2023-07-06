@@ -167,10 +167,34 @@
 }
 
 .adm-btn {
+  display: block;
   margin-top: 10px;
   margin-left: 10px;
   background-color: #c1c1c1;
   color: black;
+}
+
+@media only screen and (max-width: 768px) {
+  .adm-btn {
+    display: inline-block;
+  }
+
+  .menu-catalogo {
+    padding-left: 2em;
+    padding-bottom: 1em;
+    margin: 0 auto;
+  }
+}
+
+
+@media only screen and (max-width: 640px) {
+  .adm-btn {
+    display: block;
+  }
+
+  .menu-catalogo {
+    padding-bottom: 2em;
+  }
 }
 
 .adm-btn:hover, .adm-btn:active {
