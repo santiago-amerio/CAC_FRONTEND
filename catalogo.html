@@ -11,7 +11,7 @@
   <title>DIG construccion</title>
 </head>
 
-<body>
+<body onload="bring_product_list()">
   <header>
     <nav class="header-menubar">
       <a href="index.html">
@@ -39,15 +39,15 @@
 
   <main>
     <div class="sec-cat">
-      <div class="grid-catalogo">
-        <div class="menu-catalogo">
-          <p class="titulo-filtro">Filtrar:</p>
+      <div class="grid-catalogo" id="catalogo" >
+        <div  class="menu-catalogo">
+          <p class="titulo-filtro">Filtrar: <span id="filtered-by"></span></p>
           <ul>
-            <a href="">
+            <a href="?category=1">
               <li class="filtro-maquinas">CARGADORAS COMPACTAS</li>
             </a>
             </a>
-            <a href="">
+            <a href="?category=2">
               <li class="filtro-maquinas">MINI EXCAVADORAS</li>
             </a>
             <a href="">
@@ -63,7 +63,7 @@
           </div>
         </div>
 
-        <div class="grid-item-catalogo">
+        <!-- <div class="grid-item-catalogo">
           <p class="tipo-prod">CARGADORAS COMPACTAS</p>
           <p class="modelo-prod">232D3</p>
 
@@ -77,9 +77,9 @@
           <p class="valor-caract-prod">2955 kg</p>
 
           <input class="button" type="button" value="agregar al carrito" />
-        </div>
+        </div> -->
         <!-- Los 3 item sig es para diagramar nomás deberian ir agregandose segun cant por js  -->
-        <div class="grid-item-catalogo">
+        <!-- <div class="grid-item-catalogo">
           <p class="tipo-prod">CARGADORAS COMPACTAS</p>
           <p class="modelo-prod">232G4</p>
 
@@ -125,7 +125,7 @@
           <p class="valor-caract-prod">6720 mm</p>
 
           <input class="button" type="button" value="agregar al carrito" />
-        </div>
+        </div> -->
 
       </div>
     </div>
@@ -141,12 +141,12 @@
     <p>Latin América - Español | Todos los derechos reservados DIG® 2023</p>
   </footer>
   <script src="https://kit.fontawesome.com/f848986b3d.js" crossorigin="anonymous"></script>
-  <script src="./js/form_validation.js"></script>
+  <!-- <script src="./js/form_validation.js"></script> -->
   <script src="./js/burger_menu.js"></script>
-  <script src="./js/time_api.js"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="js/app_index.js"></script>
-  <script src="/js/log.js"></script>
+  <!-- <script src="./js/app_index.js"></script> -->
+
+  <script src="./js/bring_product.js"></script>
 </body>
 
 </html>
