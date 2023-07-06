@@ -11,7 +11,7 @@
   <title>DIG construccion</title>
 </head>
 
-<body onload="bring_product_list()">
+<body>
   <header>
     <nav class="header-menubar">
       <a href="index.html">
@@ -38,32 +38,71 @@
   </header>
 
   <main>
+
     <div class="sec-cat">
       <div class="menu-catalogo">
-        <p class="titulo-filtro">Filtrar: <span id="filtered-by"></span></p>
-        <ul>
-          <a href="?category=1">
+        <p class="titulo-filtro">Filtrar: <span id="remove-filter"></span></p>
+        <ul id="categorias">
+          <!-- <a onclick="load_category('1')">
             <li class="filtro-maquinas">CARGADORAS COMPACTAS</li>
           </a>
           </a>
-          <a href="?category=2">
+          <a onclick="load_category('2')">
             <li class="filtro-maquinas">MINI EXCAVADORAS</li>
           </a>
           <a href="">
             <li class="filtro-maquinas">EXCAVADORAS MEDIAS</li>
-          </a>
+          </a> -->
         </ul>
         <div class="admin-config-box">
           <p>Administrador:</p>
           <input class="button adm-btn" type="button" value="Editar / agregar Producto" />
           <input class="button adm-btn" type="button" value="Editar / agregar Categoria" />
           <input class="button adm-btn" type="button" value="Editar producto" />
-
         </div>
       </div>
+      <hr>
+      <div>
+
+      </div>
+
+      <form id="add_product">
+        <h3 id="editor_title">Estas editando un  producto</h3>
+        <button id="edit_create_toggler" onclick="toggle_editor_creator(event)">crear nuevo</button>
+        <div id="id_selector" is_editor="false">
+          <select type="number" id="pord-id" placeholder="id"></select>
+        </div>
+
+        <input type="text" id="prod-modelo" placeholder="modelo">
+        <input type="text" id="prod-descripcion" placeholder="descripcion">
+        <input type="text" id="prod-imagen" placeholder="imagen">
+        <input type="text" id="prod-precio" placeholder="precio">
+        <input type="text" id="prod-ccn" placeholder="ccn">
+        <input type="text" id="prod-pb" placeholder="pb">
+        <input type="text" id="prod-pf" placeholder="pf">
+        <input type="text" id="prod-categoria" placeholder="categoria">
+        <select id="prod-cat" name="prod-cat"></select>
+
+        </select>
+
+        <button onclick="add_or_edit_producto(event)">enviar</button>
+        <div id="error"></div>
+      </form>
+
+      <hr>
+      <form id="add_category">
+        <input type="number" id="cat-id" placeholder="categoria id">
+        <input type="text" id="cat-titulo" placeholder="titulo">
+        <input type="text" id="cat-descripcion" placeholder="descripcion">
+        <input type="text" id="cat-imagen" placeholder="imagen">
+        <button onclick="add_or_edit_category(event)">enviar</button>
+        <div id="error"></div>
+      </form>
+      <hr>
       <div id="content-grid">
+        <span id="filtered-by"></span>
         <div class="grid-catalogo" id="catalogo">
-          <div class="grid-item-catalogo">
+          <!-- <div class="grid-item-catalogo">
             <p class="tipo-prod">CARGADORAS COMPACTAS</p>
             <p class="modelo-prod">232D3</p>
 
@@ -125,10 +164,11 @@
             <p class="valor-caract-prod">6720 mm</p>
 
             <input class="button" type="button" value="agregar al carrito" />
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
+
   </main>
 
   <footer>
@@ -146,7 +186,24 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <!-- <script src="./js/app_index.js"></script> -->
 
-  <!-- <script src="./js/bring_product.js"></script> -->
+  <script src="./js/product_management/load_catalogo.js"></script>
+
+  <script src="./js/product_management/get_data.js"></script>
+
+
+
+
+  <script src="./js/product_management/category_editor.js"></script>
+  <script src="./js/product_management/product_editor.js"></script>
+
+
+  <script>
+    dropdown_cat_filler()
+    dropdown_prod_id_filler()
+    load_products();
+    load_categories()
+
+  </script>
 </body>
 
 </html>
