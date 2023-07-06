@@ -8,12 +8,16 @@
 
 /* Configuracion del Grid*/
 
+#content-grid {
+  position: relative;
+  top: -270px;
+  display: inline-block;
+}
+
 .grid-catalogo {
-  margin: 0 auto 0 0;
-  width: 100%;
-  border-radius: 20px;
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  width: 120%;
+  grid-template-columns: auto auto auto;
   grid-template-rows: auto;
   padding: 2em 1em;
   gap: 1em;
@@ -31,29 +35,31 @@
 }
 
 .menu-catalogo {
+  margin: 2em;
+  display: inline-block;
   border-right: red 4px solid;
-  min-width: 200px;
+  width: 220px;
   min-height: 450px;
   max-height: 500px;
-  grid-column: 1;
-  grid-row: 1 / 4;
 }
 
-@media only screen and (max-width: 1200px) {
+
+@media only screen and (max-width: 1040px) {
   .grid-catalogo {
-    grid-template-columns: auto auto auto auto;
+    width: 120%;
+    grid-template-columns: auto auto ;
   }
 }
 
 @media only screen and (max-width: 992px) {
-  .grid-catalogo {
-    grid-template-columns: auto auto auto;
+  #content-grid {
+    position: inherit;
+    display: inline-block;
   }
-}
 
-@media only screen and (max-width: 768px) {
   .grid-catalogo {
-    grid-template-columns: auto auto;
+    width: 98vw;
+    grid-template-columns: auto auto auto ;
   }
 
   .grid-catalogo {
@@ -63,22 +69,24 @@
   .menu-catalogo {
     border-right: red 0px solid;
     border-bottom: red 4px solid;
-    min-width: 100%;
+    min-width: 90%;
     min-height: 200px;
-    grid-column: 1 / 3;
-    grid-row: 1;
+    margin-bottom:  0px;
+    padding-bottom: 1em;
+    padding-left: 0.5em;
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .grid-catalogo {
+    width: 98vw;
+    grid-template-columns: auto auto;
   }
 }
 
 @media only screen and (max-width: 576px) {
   .grid-catalogo {
     grid-template-columns: auto;
-  }
-
-  .menu-catalogo {
-    max-height: fit-content;
-    grid-column: 1;
-    grid-row: 1;
   }
 }
 
@@ -174,21 +182,27 @@
   color: black;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 992px) {
   .adm-btn {
     display: inline-block;
   }
 
-  .menu-catalogo {
-    padding-left: 2em;
-    padding-bottom: 1em;
-    margin: 0 auto;
+  .filtro-maquinas {
+    
+    text-align: center;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
   }
 }
 
-
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 648px) {
   .adm-btn {
+    display: block;
+  }
+
+  .filtro-maquinas {
     display: block;
   }
 

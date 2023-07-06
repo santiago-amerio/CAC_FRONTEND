@@ -39,30 +39,30 @@
 
   <main>
     <div class="sec-cat">
-      <div class="grid-catalogo" id="catalogo">
-        <div class="menu-catalogo">
-          <p class="titulo-filtro">Filtrar: <span id="filtered-by"></span></p>
-          <ul>
-            <a href="?category=1">
-              <li class="filtro-maquinas">CARGADORAS COMPACTAS</li>
-            </a>
-            </a>
-            <a href="?category=2">
-              <li class="filtro-maquinas">MINI EXCAVADORAS</li>
-            </a>
-            <a href="">
-              <li class="filtro-maquinas">EXCAVADORAS MEDIAS</li>
-            </a>
-          </ul>
-          <div class="admin-config-box">
-            <p>Administrador:</p>
-            <input class="button adm-btn" type="button" value="Editar / agregar Producto" />
-            <input class="button adm-btn" type="button" value="Editar / agregar Categoria" />
-            <input class="button adm-btn" type="button" value="Editar producto" />
+      <div class="menu-catalogo">
+        <p class="titulo-filtro">Filtrar: <span id="filtered-by"></span></p>
+        <ul>
+          <a href="?category=1">
+            <li class="filtro-maquinas">CARGADORAS COMPACTAS</li>
+          </a>
+          </a>
+          <a href="?category=2">
+            <li class="filtro-maquinas">MINI EXCAVADORAS</li>
+          </a>
+          <a href="">
+            <li class="filtro-maquinas">EXCAVADORAS MEDIAS</li>
+          </a>
+        </ul>
+        <div class="admin-config-box">
+          <p>Administrador:</p>
+          <input class="button adm-btn" type="button" value="Editar / agregar Producto" />
+          <input class="button adm-btn" type="button" value="Editar / agregar Categoria" />
+          <input class="button adm-btn" type="button" value="Editar producto" />
 
-          </div>
         </div>
-        <div id="box-items">
+      </div>
+      <div id="content-grid">
+        <div class="grid-catalogo" id="catalogo">
           <div class="grid-item-catalogo">
             <p class="tipo-prod">CARGADORAS COMPACTAS</p>
             <p class="modelo-prod">232D3</p>
@@ -146,7 +146,7 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <!-- <script src="./js/app_index.js"></script> -->
 
-  <script src="./js/bring_product.js"></script>
+  <!-- <script src="./js/bring_product.js"></script> -->
 </body>
 
 </html>
