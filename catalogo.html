@@ -1,49 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="shortcut icon" href="img/iconos/favicon-16x16.png" type="image/x-icon" />
+        <title>DIG construccion</title>
+    </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="shortcut icon" href="img/iconos/favicon-16x16.png" type="image/x-icon" />
-  <title>DIG construccion</title>
-</head>
+    <body>
+        <header>
+            <nav class="header-menubar">
+                <a href="index.html">
+                    <img src="./img/logo-removebg-mini.png" alt="logo" />
+                </a>
+                <div id="burger-menu-button">
+                    <i onclick="toggle_navigation()" class="fa-solid fa-bars"></i>
+                </div>
+                <ul id="navigation" class="">
+                    <a href="./index.html">
+                        <li>Home</li>
+                    </a>
+                    <a href="./catalogo.html">
+                        <li>Catalogo</li>
+                    </a>
+                    <a href="./contacto.html">
+                        <li>Contacto</li>
+                    </a>
+                    <a href="./login.html">
+                        <li>Log</li>
+                    </a>
+                </ul>
+            </nav>
+            <style>
+                /* #modal_admin {
+      
+        position: absolute;
+        top: 0;
+        height: 100%;
+        left: 0;
+        width: 100%;
+        background-color: gray;
 
-<body>
-  <header>
-    <nav class="header-menubar">
-      <a href="index.html">
-        <img src="./img/logo-removebg-mini.png" alt="logo" />
-      </a>
-      <div id="burger-menu-button">
-        <i onclick="toggle_navigation()" class="fa-solid fa-bars"></i>
-      </div>
-      <ul id="navigation" class="">
-        <a href="./index.html">
-          <li>Home</li>
-        </a>
-        <a href="./catalogo.html">
-          <li>Catalogo</li>
-        </a>
-        <a href="./contacto.html">
-          <li>Contacto</li>
-        </a>
-        <a href="./login.html">
-          <li>Log</li>
-        </a>
-      </ul>
-    </nav>
-  </header>
+      }
 
-  <main>
+      #modal_admin>div {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+      } */
+            </style>
+        </header>
 
-    <div class="sec-cat">
-      <div class="menu-catalogo">
-        <p class="titulo-filtro">Filtrar: <span id="remove-filter"></span></p>
-        <ul id="categorias">
-          <!-- <a onclick="load_category('1')">
+        <main>
+            <div class="sec-cat">
+                <div id="modal_admin">
+                    <div>
+                        <form id="add_product">
+                            <div id="id_selector" is_editor="false">
+                                <select
+                                    type="number"
+                                    id="prod-id"
+                                    placeholder="id"
+                                    onchange="change_product(event)"
+                                ></select>
+                            </div>
+                            <br />
+                            <input type="text" id="prod-modelo" placeholder="modelo" />
+                            <input type="text" id="prod-imagen" placeholder="imagen" />
+                            <input type="text" id="prod-precio" placeholder="precio" />
+                            <input type="text" id="prod-ccn" placeholder="ccn" />
+                            <input type="text" id="prod-pb" placeholder="pb" />
+                            <input type="text" id="prod-pf" placeholder="pf" />
+                            <select id="prod-categoria" name="prod-categoria"></select>
+                            <br />
+                            <textarea id="prod-description" placeholder="descripcion"></textarea>
+                            <br />
+                            <button onclick="add_or_edit_producto(event)">enviar</button>
+                            <div id="error"></div>
+                        </form>
+
+                        <hr />
+                        <form id="add_category">
+                          
+                            <div id="cat_selector" is_editor="false">
+                                <select
+                                    type="number"
+                                    id="cat-id"
+                                    placeholder="id"
+                                    onchange="change_category(event)"
+                                ></select>
+                            </div>
+                            <br />
+                            <input type="text" id="cat-titulo" placeholder="titulo" />
+
+                            <input type="text" id="cat-imagen" placeholder="imagen" />
+                            <br />
+                            <textarea type="text" id="cat-description" placeholder="descripcion"></textarea>
+                            <br />
+                            <button onclick="add_or_edit_category(event)">enviar</button>
+                            <div id="error"></div>
+                        </form>
+                        <hr />
+                        <button>Cerrar</button>
+                    </div>
+                </div>
+                <div class="menu-catalogo">
+                    <p class="titulo-filtro">Filtrar: <span id="filtered-by"></span></p>
+                    <span id="remove-filter"></span>
+                    <ul id="categorias">
+                        <!-- <a onclick="load_category('1')">
             <li class="filtro-maquinas">CARGADORAS COMPACTAS</li>
           </a>
           </a>
@@ -53,56 +122,18 @@
           <a href="">
             <li class="filtro-maquinas">EXCAVADORAS MEDIAS</li>
           </a> -->
-        </ul>
-        <div class="admin-config-box">
-          <p>Administrador:</p>
-          <input class="button adm-btn" type="button" value="Editar / agregar Producto" />
-          <input class="button adm-btn" type="button" value="Editar / agregar Categoria" />
-          <input class="button adm-btn" type="button" value="Editar producto" />
-        </div>
-      </div>
-      <hr>
-      <div>
+                    </ul>
+                    <div id="admin_box" class="admin-config-box">
+                        <p>Administrador:</p>
+                        <input class="button adm-btn" type="button" value="Editar / agregar Producto" />
+                        <input class="button adm-btn" type="button" value="Editar / agregar Categoria" />
+                        <input class="button adm-btn" type="button" value="Editar producto" />
+                    </div>
+                </div>
 
-      </div>
-
-      <form id="add_product">
-        <h3 id="editor_title">Estas editando un  producto</h3>
-        <button id="edit_create_toggler" onclick="toggle_editor_creator(event)">crear nuevo</button>
-        <div id="id_selector" is_editor="false">
-          <select type="number" id="pord-id" placeholder="id"></select>
-        </div>
-
-        <input type="text" id="prod-modelo" placeholder="modelo">
-        <input type="text" id="prod-descripcion" placeholder="descripcion">
-        <input type="text" id="prod-imagen" placeholder="imagen">
-        <input type="text" id="prod-precio" placeholder="precio">
-        <input type="text" id="prod-ccn" placeholder="ccn">
-        <input type="text" id="prod-pb" placeholder="pb">
-        <input type="text" id="prod-pf" placeholder="pf">
-        <input type="text" id="prod-categoria" placeholder="categoria">
-        <select id="prod-cat" name="prod-cat"></select>
-
-        </select>
-
-        <button onclick="add_or_edit_producto(event)">enviar</button>
-        <div id="error"></div>
-      </form>
-
-      <hr>
-      <form id="add_category">
-        <input type="number" id="cat-id" placeholder="categoria id">
-        <input type="text" id="cat-titulo" placeholder="titulo">
-        <input type="text" id="cat-descripcion" placeholder="descripcion">
-        <input type="text" id="cat-imagen" placeholder="imagen">
-        <button onclick="add_or_edit_category(event)">enviar</button>
-        <div id="error"></div>
-      </form>
-      <hr>
-      <div id="content-grid">
-        <span id="filtered-by"></span>
-        <div class="grid-catalogo" id="catalogo">
-          <!-- <div class="grid-item-catalogo">
+                <div id="content-grid">
+                    <div class="grid-catalogo" id="catalogo">
+                        <!-- <div class="grid-item-catalogo">
             <p class="tipo-prod">CARGADORAS COMPACTAS</p>
             <p class="modelo-prod">232D3</p>
 
@@ -165,45 +196,38 @@
 
             <input class="button" type="button" value="agregar al carrito" />
           </div> -->
-        </div>
-      </div>
-    </div>
+                    </div>
+                </div>
+            </div>
+        </main>
 
-  </main>
+        <footer>
+            <div>
+                <a class="social" href="https://www.instagram.com/corewd/"><i class="fa-brands fa-instagram"></i></a>
+                <a class="social" href="https://twitter.com/CoreWebDesignG"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="social"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <p>Latin América - Español | Todos los derechos reservados DIG® 2023</p>
+        </footer>
+        <script src="https://kit.fontawesome.com/f848986b3d.js" crossorigin="anonymous"></script>
+        <!-- <script src="./js/form_validation.js"></script> -->
+        <script src="./js/burger_menu.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <!-- <script src="./js/app_index.js"></script> -->
 
-  <footer>
-    <div>
-      <a class="social" href="https://www.instagram.com/corewd/"><i class="fa-brands fa-instagram"></i></a>
-      <a class="social" href="https://twitter.com/CoreWebDesignG"><i class="fa-brands fa-twitter"></i></a>
-      <a href="#" class="social"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="#" class="social"><i class="fa-brands fa-github"></i></a>
-    </div>
-    <p>Latin América - Español | Todos los derechos reservados DIG® 2023</p>
-  </footer>
-  <script src="https://kit.fontawesome.com/f848986b3d.js" crossorigin="anonymous"></script>
-  <!-- <script src="./js/form_validation.js"></script> -->
-  <script src="./js/burger_menu.js"></script>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <!-- <script src="./js/app_index.js"></script> -->
+        <script src="./js/product_management/load_catalogo.js"></script>
 
-  <script src="./js/product_management/load_catalogo.js"></script>
+        <script src="./js/product_management/get_data.js"></script>
 
-  <script src="./js/product_management/get_data.js"></script>
+        <script src="./js/product_management/category_editor.js"></script>
+        <script src="./js/product_management/product_editor.js"></script>
 
-
-
-
-  <script src="./js/product_management/category_editor.js"></script>
-  <script src="./js/product_management/product_editor.js"></script>
-
-
-  <script>
-    dropdown_cat_filler()
-    dropdown_prod_id_filler()
-    load_products();
-    load_categories()
-
-  </script>
-</body>
-
+        <script>
+            dropdown_cat_filler();
+            dropdown_prod_id_filler();
+            load_products();
+            load_categories();
+        </script>
+    </body>
 </html>
