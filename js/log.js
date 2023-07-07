@@ -23,7 +23,7 @@ document.querySelector("#submit-login").addEventListener("click", function (e) {
         });
 });
 
-document.querySelector("#login-register").addEventListener("click", function (e) {
+document.querySelector("#submit-register").addEventListener("click", function (e) {
     e.preventDefault();
     let user = document.querySelector("#user-register").value;
     let passw = document.querySelector("#passw-register").value;
@@ -39,5 +39,6 @@ document.querySelector("#login-register").addEventListener("click", function (e)
         .then((response) => response.json())
         .then((response) => {
             console.log(response);
+            
         });
 });

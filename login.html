@@ -11,61 +11,62 @@
         <link rel="shortcut icon" href="./img/iconos/favicon-16x16.png" type="image/x-icon" />
         <title>DIG construccion</title>
     </head>
-<body>
-    <header>
-        <nav class="header-menubar">
-            <a href="index.html">
-                <img src="./img/logo-removebg-mini.png" alt="logo" />
-            </a>
-            <div id="burger-menu-button">
-                <i onclick="toggle_navigation()" class="fa-solid fa-bars"></i>
+    <body>
+        <header>
+            <nav class="header-menubar">
+                <a href="index.html">
+                    <img src="./img/logo-removebg-mini.png" alt="logo" />
+                </a>
+                <div id="burger-menu-button">
+                    <i onclick="toggle_navigation()" class="fa-solid fa-bars"></i>
+                </div>
+                <ul id="navigation" class="">
+                    <a href="./index.html"><li>Home</li></a>
+                    <a href="./catalogo.html"><li>Catalogo</li></a>
+                    <a href="./contacto.html"><li>Contacto</li></a>
+                    <a href="./login.html"><li>Log</li></a>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="login-page, sec-log">
+                <div class="form">
+                    <form class="register-form">
+                        <input id="user-register" type="text" placeholder="name" />
+                        <input id="passw-register" type="password" placeholder="password" />
+                        <input id="mail-register" type="text" placeholder="email address" />
+                        <button id="submit-register">create</button>
+                        <p class="message">Already registered? <a href="#">Sign In</a></p>
+                    </form>
+                    <form class="login-form">
+                        <input id="user-login" type="text" placeholder="username" />
+                        <input id="passw-login" type="password" placeholder="password" />
+                        <button id="submit-login">login</button>
+                        <p class="message">Not registered? <a href="#">Create an account</a></p>
+                    </form>
+                </div>
             </div>
-            <ul id="navigation" class="">
-                <a href="./index.html"><li>Home</li></a>
-                <a href="./catalogo.html"><li>Catalogo</li></a>
-                <a href="./contacto.html"><li>Contacto</li></a>
-                <a href="./login.html"><li>Log</li></a>
-            </ul>
-        </nav>
-    </header>
+        </main>
 
-    <main>
-        <div class="login-page, sec-log">
-            <div class="form">
-                <form class="register-form">
-                    <input id="user-register" type="text" placeholder="name" />
-                    <input id="passw-register" type="password" placeholder="password" />
-                    <input id="mail-register" type="text" placeholder="email address" />
-                    <button id="login-register">create</button>
-                    <p class="message">Already registered? <a href="#">Sign In</a></p>
-                </form>
-                <form class="login-form">
-                    <input id="user-login" type="text" placeholder="username" />
-                    <input id="passw-login" type="password" placeholder="password" />
-                    <button id="submit-login">login</button>
-                    <p class="message">Not registered? <a href="#">Create an account</a></p>
-                </form>
+        <footer>
+            <div>
+                <a class="social" href="https://www.instagram.com/corewd/"><i class="fa-brands fa-instagram"></i></a>
+                <a class="social" href="https://twitter.com/CoreWebDesignG"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="social"><i class="fa-brands fa-github"></i></a>
             </div>
-        </div>
-    </main>
+            <p>Latin América - Español | Todos los derechos reservados DIG® 2023</p>
+        </footer>
+        <script
+            src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://kit.fontawesome.com/f848986b3d.js" crossorigin="anonymous"></script>
+        <script src="./js/burger_menu.js"></script>
 
-    <footer>
-        <div>
-            <a class="social" href="https://www.instagram.com/corewd/"><i class="fa-brands fa-instagram"></i></a>
-            <a class="social" href="https://twitter.com/CoreWebDesignG"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" class="social"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#" class="social"><i class="fa-brands fa-github"></i></a>
-        </div>
-        <p>Latin América - Español | Todos los derechos reservados DIG® 2023 </p>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/f848986b3d.js" crossorigin="anonymous"></script>
-    <script src="./js/form_validation.js"></script>
-    <script src="./js/burger_menu.js"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./js/app_index.js"></script>
-    <script src="./js/log.js"></script>
-</body>
-
+        <script src="./js/form_validation.js"></script>
+        <script src="./js/log.js"></script>
+    </body>
 </html>
