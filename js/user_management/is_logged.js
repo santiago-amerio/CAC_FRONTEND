@@ -20,9 +20,9 @@ async function run_if_logged_in(admin_level) {
     }
 }
 
-
-
-async function logout() {
+async function logout(e) {
+    e.preventDefault();
+    
     const response = await fetch("https://thiagosch.pythonanywhere.com/logout", {
         method: "POST",
         headers: {
@@ -48,13 +48,22 @@ async function functions_per_page() {
     run_if_logged_in(admin_level);
     if (admin_level !== false) {
         if (location == "/login.html") {
-            document.querySelector(".login-form").style = "display:none;";
-            document.querySelector(".logout-form").style = "";
-            console.log(admin_level);
+            login_page_logged(admin_level);
+        } else if (location == "/catalogo.html") {
+            catalog_page_logged(admin_level);
         }
     } else {
         console.log("not logged");
     }
 }
 
+function login_page_logged(admin_level) {
+    document.querySelector(".login-form").style = "display:none;";
+    document.querySelector(".logout-form").style = "";
+}
+function catalog_page_logged(admin_level) {
+    if (admin_level >= 1) {
+        document.querySelector("#modal_admin").style.display = "block";
+    }
+}
 functions_per_page();
