@@ -19,12 +19,15 @@ document.querySelector("#submit-login").addEventListener("click", function (e) {
             return response.json();
         })
         .then((response) => {
-            
-            if("error" in response){
-                console.log("deberia mostrar error al user")
-            }else if("message" in response){
-                if(response["message"] == "Login successful"){
-                    window.location.replace("./");
+            if ("error" in response) {
+                console.log("deberia mostrar error al user");
+            } else if ("message" in response) {
+                if (response["message"] == "Login successful") {
+                    test = async () => {
+                        await check_login();
+                        window.location.replace("./");
+                    };
+                    test()
                 }
             }
         });
@@ -45,8 +48,6 @@ document.querySelector("#submit-register").addEventListener("click", function (e
     })
         .then((response) => response.json())
         .then((response) => {
-            
             console.log(response);
-            
         });
 });

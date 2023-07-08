@@ -9,7 +9,7 @@ async function check_login() {
         body: JSON.stringify({}),
     });
     const json = await response.json();
-
+    document.cookie = `admin_level=${json}`;
     return json;
 }
 async function run_if_logged_in(admin_level) {
@@ -35,6 +35,7 @@ async function logout(e) {
     const json = await response.json();
     try {
         if (json["message"] == "logged out") {
+            await check_login()
             location.reload();
         }
     } catch {
@@ -43,10 +44,13 @@ async function logout(e) {
 }
 
 async function functions_per_page() {
-    const location = window.location.pathname;
-    let admin_level = await check_login();
+    
+    
+    let admin_level = getCookie("admin_level")
     run_if_logged_in(admin_level);
-    if (admin_level !== false) {
+    const location = window.location.pathname;
+    if (admin_level >= 0 && admin_level !== false) {
+        console.log(admin_level)
         if (location == "/login.html") {
             login_page_logged(admin_level);
         } else if (location == "/catalogo.html") {
@@ -55,6 +59,7 @@ async function functions_per_page() {
     } else {
         console.log("not logged");
     }
+    await check_login()
 }
 
 function login_page_logged(admin_level) {
@@ -66,4 +71,15 @@ function catalog_page_logged(admin_level) {
         document.querySelector("#modal_admin").style.display = "block";
     }
 }
+
+
 functions_per_page();
+
+
+
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
