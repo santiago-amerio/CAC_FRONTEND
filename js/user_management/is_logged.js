@@ -1,6 +1,4 @@
 async function check_login() {
-    let cookies = document.cookie;
-    console.log(cookies);
     const response = await fetch("https://thiagosch.pythonanywhere.com/is_logged", {
         method: "POST",
         headers: {
@@ -11,20 +9,18 @@ async function check_login() {
         body: JSON.stringify({}),
     });
     const json = await response.json();
-    console.log(json);
+
     return json;
 }
-
-async function run_if_logged_in() {
-    const is_logged = await check_login();
-    if (is_logged >= 0 && is_logged !== false) {
+async function run_if_logged_in(admin_level) {
+    if (admin_level >= 0 && admin_level !== false) {
         const navigation = document.querySelector("#navigation");
         const a_tag = navigation.lastChild.previousSibling;
-        // navigation.lastChild.innerHTML = "logout";
-
         a_tag.innerHTML = "<li>Logout</li>";
     }
 }
+
+
 
 async function logout() {
     const response = await fetch("https://thiagosch.pythonanywhere.com/logout", {
@@ -39,11 +35,26 @@ async function logout() {
     const json = await response.json();
     try {
         if (json["message"] == "logged out") {
-            location. reload()
+            location.reload();
         }
     } catch {
-        console.error("logout error")
+        console.error("logout error");
     }
 }
 
-run_if_logged_in();
+async function functions_per_page() {
+    const location = window.location.pathname;
+    let admin_level = await check_login();
+    run_if_logged_in(admin_level);
+    if (admin_level !== false) {
+        if (location == "/login.html") {
+            document.querySelector(".login-form").style = "display:none;";
+            document.querySelector(".logout-form").style = "";
+            console.log(admin_level);
+        }
+    } else {
+        console.log("not logged");
+    }
+}
+
+functions_per_page();

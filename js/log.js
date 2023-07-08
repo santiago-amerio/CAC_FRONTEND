@@ -1,7 +1,7 @@
 $(".message a").click(function () {
     $("form").animate({ height: "toggle", opacity: "toggle" }, "slow");
 });
-const admin_level = false
+
 document.querySelector("#submit-login").addEventListener("click", function (e) {
     e.preventDefault();
     let user = document.querySelector("#user-login").value;
