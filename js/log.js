@@ -1,7 +1,7 @@
 $(".message a").click(function () {
     $("form").animate({ height: "toggle", opacity: "toggle" }, "slow");
 });
-
+const admin_level = false
 document.querySelector("#submit-login").addEventListener("click", function (e) {
     e.preventDefault();
     let user = document.querySelector("#user-login").value;
@@ -19,7 +19,14 @@ document.querySelector("#submit-login").addEventListener("click", function (e) {
             return response.json();
         })
         .then((response) => {
-            console.log(response);
+            
+            if("error" in response){
+                console.log("deberia mostrar error al user")
+            }else if("message" in response){
+                if(response["message"] == "Login successful"){
+                    window.location.replace("./");
+                }
+            }
         });
 });
 
@@ -38,6 +45,7 @@ document.querySelector("#submit-register").addEventListener("click", function (e
     })
         .then((response) => response.json())
         .then((response) => {
+            
             console.log(response);
             
         });
