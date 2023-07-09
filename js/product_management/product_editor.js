@@ -33,7 +33,6 @@ async function edit_producto(body) {
 
         const json = await response.json();
         return json;
-        
     } catch (error) {
         // Handle error
         console.log(error);
@@ -63,7 +62,7 @@ async function add_or_edit_producto(e) {
         response = await add_producto(json_body);
     }
     console.info(response);
-    reload_things()
+    reload_things();
     if ("error" in response) {
         if ("missing-fields" in response["error"]) {
             error_container.innerHTML = "faltaron alguns campos: " + response["error"]["missing-fields"];
@@ -85,4 +84,12 @@ function removeEmpty(obj) {
         }
     }
     return obj;
+}
+
+function toggle_admin_tools(action) {
+    if (document.querySelector("#modal_admin").style.display == "none") {
+        document.querySelector("#modal_admin").style.display = "";
+    }else{
+        document.querySelector("#modal_admin").style.display = "none";
+    }
 }
