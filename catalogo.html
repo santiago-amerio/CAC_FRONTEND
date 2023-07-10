@@ -106,15 +106,16 @@
                             <input type="text" id="prod-pb" placeholder="pb" />
                             <label for="prod-pf">peso de funcionamiento</label>
                             <input type="text" id="prod-pf" placeholder="pf" />
+
                             <label for="prod-categoria">categoria</label>
                             <select id="prod-categoria" name="prod-categoria"></select>
-
                             <label for="prod-modelo">descripcion</label>
                             <textarea id="prod-description" placeholder="descripcion"></textarea>
-
-                            <button onclick="add_or_edit_producto(event)">enviar</button>
-                            <div id="error"></div>
+                            <button onclick="add_or_edit_producto(event)">Guardar cambios</button>
+                            
+                            <button id="deactivate-pr">Desactivar producto</button>
                         </form>
+                        <div id="error-pr"></div>
 
                         <hr />
                         <form id="add_category">

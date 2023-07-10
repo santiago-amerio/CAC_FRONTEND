@@ -14,6 +14,9 @@ async function load_products(category) {
                 continue;
             }
         }
+        if (!producto["active"]) {
+            continue;
+        }
 
         template.innerHTML = `
                     <div class="grid-item-catalogo">
@@ -26,8 +29,6 @@ async function load_products(category) {
                         <p class="valor-caract-prod">${producto["ccn"]}</p>
                         <p class="caract-prod">Peso de funcionamiento</p>
                         <p class="valor-caract-prod">${producto["pf"]}</p>
-
-                        <input class="button" type="button" value="agregar al carrito" />
                     </div>
                 `;
         container.appendChild(template);
@@ -69,29 +70,44 @@ async function dropdown_prod_id_filler() {
     let json = await get_product_list(); // Await the function and capture the returned value
     let dropdown = document.querySelector("#prod-id");
     let option = document.createElement("option");
+    dropdown.innerHTML = "";
     option.value = "0";
     option.innerHTML = "Crear nuevo";
     dropdown.append(option);
     for (index in json) {
         let producto = json[index];
+        let prod_status = producto["active"] ? "" : "(desactivado)";
         let id = producto["id"];
         let modelo = producto["modelo"];
-
         let option = document.createElement("option");
         option.value = id;
-        option.innerHTML = modelo;
+        option.innerHTML = `${modelo} ${prod_status}`;
 
         dropdown.append(option);
     }
 }
 async function change_product(e) {
+    let id_selected = "";
+    try {
+        id_selected = e.target.options[e.target.selectedIndex].value;
+    } catch {
+        id_selected = document.querySelector("#prod-id");
+    }
     let product = await get_product_list();
 
-    let id_selected = e.target.options[e.target.selectedIndex].value;
     const filteredArray = product.filter((obj) => obj.id == id_selected)[0];
     let value = "";
+    const button_delete = document.querySelector("#deactivate-pr");
     for (let key in filteredArray) {
-        if (key == "active") continue;
+        if (key == "active") {
+            console.log(filteredArray["active"]);
+            button_delete.innerHTML = filteredArray["active"] ? "Desactivar producto" : "Activar producto";
+            button_delete.setAttribute(
+                "onClick",
+                `remove_product(event, ${filteredArray["active"] ? "false" : "true"})`
+            );
+            continue;
+        }
         let element = document.getElementById("prod-" + key);
         if (key == "categoria") {
             value = filteredArray[key]["id"];
@@ -108,6 +124,8 @@ async function dropdown_cat_filler() {
     let dropdown_prod = document.querySelector("#prod-categoria");
     let dropdown_cat = document.querySelector("#cat-id");
     let option2 = document.createElement("option");
+    dropdown_cat.innerHTML = "";
+    dropdown_prod.innerHTML = "";
     option2.value = "0";
     option2.innerHTML = "Crear nueva";
     dropdown_cat.append(option2);
@@ -124,7 +142,6 @@ async function dropdown_cat_filler() {
         option2.value = id;
         option2.innerHTML = title;
         dropdown_prod.append(option);
-
         dropdown_cat.append(option2);
     }
 }
@@ -193,10 +210,9 @@ async function change_category(e) {
     }
 }
 
-
-function reload_things(){
-    dropdown_cat_filler()
-    dropdown_prod_id_filler()
-    load_categories()
-    load_products()
+function reload_things() {
+    dropdown_cat_filler();
+    dropdown_prod_id_filler();
+    load_categories();
+    load_products();
 }
