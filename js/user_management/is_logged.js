@@ -15,29 +15,6 @@ async function check_login() {
     return json;
 }
 
-async function logout(e) {
-    e.preventDefault();
-
-    const response = await fetch("https://thiagosch.pythonanywhere.com/logout", {
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({}),
-    });
-    const json = await response.json();
-    try {
-        if (json["message"] == "logged out") {
-            await check_login();
-            location.reload();
-        }
-    } catch {
-        console.error("logout error");
-    }
-}
-
 async function global_logged_function() {
     functions_per_page();
     let admin_level = getCookie("admin_level");
@@ -46,8 +23,8 @@ async function global_logged_function() {
         const a_tag = navigation.lastChild.previousSibling;
         a_tag.innerHTML = "<li>Cuenta</li>";
     }
-    
 }
+
 
 
 

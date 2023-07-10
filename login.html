@@ -44,14 +44,14 @@
                         <p class="message">Not registered? <a href="#">Create an account</a></p>
                     </form>
                     <div class="account_container" style="display: none">
-                        <form class="logout-form">
+                        <form id="user-management" class="logout-form">
                             <h1>cuenta: <span id="username"></span></h1>
 
-                            <label for="change-password">Cambiar contraseña</label>
-                            <input id="change-password" type="password" placeholder="nueva contraseña" />
+                            <label for="change-passw">Cambiar contraseña</label>
+                            <input id="change-passw" type="password" placeholder="nueva contraseña"  />
                             <label for="change-password">Cambiar mail</label>
                             <input id="change-mail" type="mail" placeholder="nuevo mail" />
-                            <button id="submit-password">guardar cambios</button>
+                            <button id="submit-changes" onclick="user_modification_and_retrieval(event,passthrough = false)">guardar cambios</button>
                         </form>
                         <br />
                         <form>
