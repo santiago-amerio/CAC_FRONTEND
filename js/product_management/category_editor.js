@@ -47,13 +47,13 @@ async function add_or_edit_category(e) {
     const inputs = Array.from(container.querySelectorAll("[id^='cat-']"));
     const error_container = container.querySelector("#error");
     let json_body = {};
-
+    
     inputs.forEach((input) => {
         json_body[input.id.replace("cat-", "")] = input.value;
     });
-
-    json_body = removeEmpty(json_body);
     console.table(json_body);
+    json_body = removeEmpty(json_body);
+    
     let response;
     if ("id" in json_body) {
         response = await edit_category(json_body);

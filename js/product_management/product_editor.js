@@ -65,25 +65,26 @@ async function edit_producto(body) {
         return { error: "Ocurrio un error inesperado." };
     }
 }
-
 async function add_or_edit_producto(e) {
     e.preventDefault();
+
     const container = document.getElementById("add_product");
     const inputs = Array.from(container.querySelectorAll("[id^='prod-']"));
     const error_container = document.querySelector("#error-pr");
     let json_body = {};
+
     inputs.forEach((input) => {
         json_body[input.id.replace("prod-", "")] = input.value;
     });
-    json_body = removeEmpty(json_body);
 
+    json_body = removeEmpty(json_body);
+    
     let response;
     if ("id" in json_body) {
         response = await edit_producto(json_body);
     } else {
         response = await add_producto(json_body);
     }
-    console.info(response);
     reload_things();
     if ("error" in response) {
         if ("missing-fields" in response["error"]) {
