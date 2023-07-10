@@ -43,9 +43,21 @@
                         <button id="submit-login">login</button>
                         <p class="message">Not registered? <a href="#">Create an account</a></p>
                     </form>
-                    <form class="logout-form" style="display: none;" >
-                        <button onclick="logout(event)" id="submit-logout">logout</button>
-                    </form>
+                    <div class="account_container" style="display: none">
+                        <form class="logout-form">
+                            <h1>cuenta: <span id="username"></span></h1>
+
+                            <label for="change-password">Cambiar contraseña</label>
+                            <input id="change-password" type="password" placeholder="nueva contraseña" />
+                            <label for="change-password">Cambiar mail</label>
+                            <input id="change-mail" type="mail" placeholder="nuevo mail" />
+                            <button id="submit-password">guardar cambios</button>
+                        </form>
+                        <br />
+                        <form>
+                            <button onclick="logout(event)" id="submit-logout">cerrar sesion</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </main>
@@ -71,8 +83,6 @@
         <script src="./js/log.js"></script>
         <script src="./js/user_management/is_logged.js"></script>
 
-        <script>
-            
-        </script>
+        <script></script>
     </body>
 </html>

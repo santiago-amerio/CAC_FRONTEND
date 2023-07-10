@@ -44,7 +44,7 @@ async function global_logged_function() {
     if (admin_level >= 0 && admin_level !== false) {
         const navigation = document.querySelector("#navigation");
         const a_tag = navigation.lastChild.previousSibling;
-        a_tag.innerHTML = "<li>Logout</li>";
+        a_tag.innerHTML = "<li>Cuenta</li>";
     }
     
 }
@@ -70,7 +70,7 @@ async function functions_per_page() {
 
 function login_page_logged() {
     document.querySelector(".login-form").style = "display:none;";
-    document.querySelector(".logout-form").style = "";
+    document.querySelector(".account_container").style = "";
 }
 function catalog_page_logged(admin_level) {
     if (admin_level >= 1) {

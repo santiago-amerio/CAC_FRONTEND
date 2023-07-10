@@ -51,3 +51,48 @@ document.querySelector("#submit-register").addEventListener("click", function (e
             console.log(response);
         });
 });
+
+
+
+document.querySelector("#submit-password").addEventListener("click", function (e) {
+    e.preventDefault();
+    
+    let passw = document.querySelector("#change-password").value;
+    fetch("https://thiagosch.pythonanywhere.com/user_properties_change", {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({}),
+        credentials: "include",
+    })
+        .then((response) => response.json())
+        .then((response) => {
+            console.log(response);
+        });
+});
+
+
+async function user_modification_and_retrieval(obj = {}){
+    const username_holder = document.querySelector("#username")
+    const mail_input = document.querySelector("#change-mail")
+    const passw_input = document.querySelector("#password")
+    const response = await fetch("https://thiagosch.pythonanywhere.com/user_properties_change", {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(obj),
+    });
+    const json = await response.json();
+    try {
+        username_holder.innerHTML = json["name"]
+        mail_input.value = json["mail"]
+    } catch (e){
+
+        console.error("server error",e);
+    }
+}
+
+user_modification_and_retrieval()
