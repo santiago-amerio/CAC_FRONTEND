@@ -31,6 +31,7 @@
             <div class="login-page, sec-log">
                 <div class="form">
                     <form class="register-form">
+                        <div id="error-register" class="error-cont"></div>
                         <input id="user-register" type="text" placeholder="name" />
                         <input id="passw-register" type="password" placeholder="password" />
                         <input id="mail-register" type="text" placeholder="email address" />
@@ -38,9 +39,11 @@
                         <p class="message">Already registered? <a href="#">Sign In</a></p>
                     </form>
                     <form class="login-form">
+                        <div id="error-login" class="error-cont"></div>
                         <input id="user-login" type="text" placeholder="username" />
                         <input id="passw-login" type="password" placeholder="password" />
                         <button id="submit-login">login</button>
+
                         <p class="message">Not registered? <a href="#">Create an account</a></p>
                     </form>
                     <div class="account_container" style="display: none">
@@ -48,10 +51,15 @@
                             <h1>cuenta: <span id="username"></span></h1>
 
                             <label for="change-passw">Cambiar contraseña</label>
-                            <input id="change-passw" type="password" placeholder="nueva contraseña"  />
+                            <input id="change-passw" type="password" placeholder="nueva contraseña" />
                             <label for="change-password">Cambiar mail</label>
                             <input id="change-mail" type="mail" placeholder="nuevo mail" />
-                            <button id="submit-changes" onclick="user_modification_and_retrieval(event,passthrough = false)">guardar cambios</button>
+                            <button
+                                id="submit-changes"
+                                onclick="user_modification_and_retrieval(event,passthrough = false)"
+                            >
+                                guardar cambios
+                            </button>
                         </form>
                         <br />
                         <form>

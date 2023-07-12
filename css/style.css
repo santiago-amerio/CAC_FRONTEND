@@ -25,6 +25,13 @@
   color: #cc2d00;
 }
 
+.error-cont{
+  color:red;
+
+  padding: .2rem .5rem;
+  text-align: center;
+}
+
 /* primera seccion inicio */
 
 #inicio {

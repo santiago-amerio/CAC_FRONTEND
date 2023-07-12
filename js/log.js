@@ -4,8 +4,12 @@ $(".message a").click(function () {
 
 document.querySelector("#submit-login").addEventListener("click", function (e) {
     e.preventDefault();
-    let user = document.querySelector("#user-login").value;
-    let passw = document.querySelector("#passw-login").value;
+
+    let user_cont = document.querySelector("#user-login");
+    let passw_cont = document.querySelector("#passw-login");
+    let user = user_cont.value;
+    let passw = passw_cont.value;
+
     fetch("https://thiagosch.pythonanywhere.com/login", {
         method: "POST",
         headers: {
@@ -21,6 +25,7 @@ document.querySelector("#submit-login").addEventListener("click", function (e) {
         .then((response) => {
             if ("error" in response) {
                 console.log("deberia mostrar error al user");
+                document.querySelector("#error-login").innerHTML = response["error"];
             } else if ("message" in response) {
                 if (response["message"] == "Login successful") {
                     test = async () => {
@@ -48,6 +53,10 @@ document.querySelector("#submit-register").addEventListener("click", function (e
     })
         .then((response) => response.json())
         .then((response) => {
+            if ("error" in response) {
+                console.log("deberia mostrar error al user");
+                document.querySelector("#error-register").innerHTML = response["error"];
+            }
             console.log(response);
         });
 });
@@ -139,20 +148,19 @@ async function logout(e) {
         body: JSON.stringify({}),
     });
     const json = await response.json();
-    console.log(button_logout)
+    console.log(button_logout);
     try {
         if (json["message"] == "logged out") {
             button_logout.innerHTML = "cerrando sesion...";
-            container.style.opacity = "1"
-            container.style.transition = "1s"
-            container.style.opacity = "0"
+            container.style.opacity = "1";
+            container.style.transition = "1s";
+            container.style.opacity = "0";
             await check_login();
             setTimeout(() => {
                 location.reload();
             }, 2000);
         }
-    } catch (err){
-        console.error("logout error",err);
+    } catch (err) {
+        console.error("logout error", err);
     }
 }
-

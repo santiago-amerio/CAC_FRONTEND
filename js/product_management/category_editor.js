@@ -45,7 +45,7 @@ async function add_or_edit_category(e) {
 
     const container = document.getElementById("add_category");
     const inputs = Array.from(container.querySelectorAll("[id^='cat-']"));
-    const error_container = container.querySelector("#error");
+    const error_container = document.querySelector("#error-ct");
     let json_body = {};
     
     inputs.forEach((input) => {
@@ -61,11 +61,16 @@ async function add_or_edit_category(e) {
         response = await add_category(json_body);
     }
     reload_things()
+
     if ("error" in response) {
+        if(response["error"] == "categoria ya existe?"){
+            error_container.innerHTML = "categoria ya existe"
+        }
         if ("missing-fields" in response["error"]) {
             error_container.innerHTML = "faltaron alguns campos: " + response["error"]["missing-fields"];
             return;
         }
+        
         error_container.innerHTML = response["error"];
     }
 }

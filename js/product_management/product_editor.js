@@ -36,7 +36,7 @@ async function remove_product(e, enable = true) {
 
         const json = await response.json();
         reload_things();
-        
+
         return json;
     } catch (error) {
         // Handle error
@@ -78,8 +78,9 @@ async function add_or_edit_producto(e) {
     });
 
     json_body = removeEmpty(json_body);
-    
+
     let response;
+
     if ("id" in json_body) {
         response = await edit_producto(json_body);
     } else {
@@ -87,13 +88,43 @@ async function add_or_edit_producto(e) {
     }
     reload_things();
     if ("error" in response) {
-        if ("missing-fields" in response["error"]) {
+        if("producto ya existe." == response["error"]){
+            error_container.innerHTML = "El modelo de este producto ya existe"
+            return;
+        }else if ("la categoria no existe" == response["error"]){
+            error_container.innerHTML = "Crea la categoria antes de insertar el producto"
+            return
+        }else if ("missing-fields" in response["error"]) {
             error_container.innerHTML = "faltaron alguns campos: " + response["error"]["missing-fields"];
             return;
         }
         error_container.innerHTML = response["error"];
     }
 }
+
+if ("admin" in json && !passthrough) {
+    button_submit.style.transition = "color .5s ease, background-color 1s ease";
+    button_submit.style.color = "#ffffff00";
+    button_submit.style.backgroundColor = "green";
+
+    setTimeout(() => {
+        button_submit.innerHTML = "Datos cambiados";
+        button_submit.style.color = "#ffffff";
+    }, 500);
+    setTimeout(() => {
+        button_submit.style.backgroundColor = "";
+        button_submit.style.color = "#ffffff00";
+
+        setTimeout(() => {
+            button_submit.innerHTML = "Guardar cambios";
+            button_submit.style.color = "#ffffff";
+        }, 500);
+    }, 3000);
+}
+
+
+
+
 
 function removeEmpty(obj) {
     for (let key in obj) {
